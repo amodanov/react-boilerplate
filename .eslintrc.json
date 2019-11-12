@@ -1,0 +1,89 @@
+{
+    "env": {
+        "browser": true,
+        "jest": true,
+        "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "airbnb-base",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript"
+    ],
+    "plugins": ["import", "@typescript-eslint", "react", "react-hooks", "jsx-a11y"],
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "import/resolver": {
+            "webpack": {
+                "config": "./tools/webpack/index.js"
+            }
+        }
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018, // Allows for the parsing of modern ECMAScript features
+        "sourceType": "module" // Allows for the use of imports
+    },
+    "rules": {
+        "@typescript-eslint/class-name-casing": ["error"],
+        "@typescript-eslint/explicit-function-return-type": [
+            "error",
+            {
+                // "allowExpressions": true,
+                "allowTypedFunctionExpressions": true
+            }
+        ],
+        "@typescript-eslint/indent": ["error", 4],
+        "@typescript-eslint/interface-name-prefix": ["error", "always"],
+        "eol-last": "error",
+        "eqeqeq": ["error", "always"],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true
+            }
+        ],
+        "lines-between-class-members": ["error", "never"],
+        "max-lines": ["error", {"max": 500, "skipBlankLines": true, "skipComments": true}],
+        "no-console": "error",
+        "no-debugger": "error",
+        "no-eval": "error",
+        "no-multiple-empty-lines": ["error", {"max": 1}],
+        "no-new-object": "error",
+        "no-new-wrappers": "error",
+        "no-trailing-spaces": "error",
+        "no-unused-expressions": [
+            "error",
+            {
+                "allowShortCircuit": true,
+                "allowTernary": true
+            }
+        ],
+        "no-var": "error",
+        "quotes": ["error", "single", {"allowTemplateLiterals": true}],
+        "react-hooks/exhaustive-deps": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react/jsx-uses-vars": "error",
+        "import/order": [
+            "error",
+            {
+                "groups": [["external", "builtin"], "internal", ["parent", "sibling", "index"]]
+            }
+        ],
+        "use-isnan": [
+            "error",
+            {
+                "enforceForSwitchCase": true,
+                "enforceForIndexOf": true
+            }
+        ]
+    }
+}
