@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const appConfig = require('../../../config');
 const webPackConfig = require('../config');
-const plugins = require('../pluguns');
+const plugins = require('../plugins');
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 module.exports = {
@@ -51,9 +51,9 @@ module.exports = {
         ],
     },
     output: {
-        filename: appConfig.output.fileName,
         path: appConfig.output.path,
-        chunkFilename: '[name].[chunkhash:4].chunk.js',
+        filename: appConfig.output.js.dev.fileName,
+        chunkFilename: appConfig.output.js.dev.chunkFilename,
     },
     plugins: [...plugins],
     resolve: {

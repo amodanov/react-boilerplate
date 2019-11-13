@@ -21,9 +21,24 @@ const imgPath = path.join(staticFilesPath, 'img');
 
 module.exports = {
     output: {
-        fileName: 'bundle.js',
-        htmlFilePath: path.resolve(outPath, 'index.html'),
         path: outPath,
+        js: {
+            dev: {
+                fileName: 'js/bundle.js',
+                chunkFilename: 'js/chunks/[name].[chunkhash:4].chunk.js',
+            },
+        },
+        css: {
+            dev: {
+                fileName: 'css/[name].css',
+                chunkFilename: '[id].css',
+            },
+            prod: {
+                fileName: 'css/[name].[contenthash:4].css',
+                chunkFilename: '[id].[contenthash:4].css',
+            },
+        },
+        htmlFilePath: path.resolve(outPath, 'index.html'),
     },
     tools: {
         path: toolsPath,

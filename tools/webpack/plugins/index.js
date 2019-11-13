@@ -10,15 +10,15 @@ const webpackMode = process.env.NODE_ENV;
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 function getCssExtractPluginOptions(mode) {
     const defaultOptions = {
-        filename: '[name].css',
-        chunkFilename: '[id].css',
+        filename: appConfig.output.css.dev.fileName,
+        chunkFilename: appConfig.output.css.dev.chunkFilename,
     };
 
     switch (mode) {
         case 'production':
             return {
-                filename: '[name].[contenthash:4].css',
-                chunkFilename: '[id].[contenthash:4].css',
+                filename: appConfig.output.css.prod.fileName,
+                chunkFilename: appConfig.output.css.prod.chunkFilename,
                 allChunks: true,
             };
 
